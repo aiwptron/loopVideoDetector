@@ -253,7 +253,7 @@ function onResults(results) {
 
     if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
         let gestureDetected = false;
-        attemptPercentage = 100; // If the hand is detected, set attempt to 50%
+        attemptPercentage = 50; // If the hand is detected, set attempt to 50%
 
         for (const landmarks of results.multiHandLandmarks) {
             drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {
@@ -292,7 +292,7 @@ function onResults(results) {
     }
 
     // Update attempt percentage
-    attemptPercentageElement.textContent = `Attempt Percentage: ${attemptPercentage}%`;
+    attemptPercentageElement.textContent = `Looped Percentage: ${attemptPercentage}%`;
 
     if (currentGesture === '') {
         setTimeout(() => {
