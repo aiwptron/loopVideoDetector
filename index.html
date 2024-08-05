@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Detection</title>
+    <style>
+        video,
+        canvas {
+            position: absolute;
+            margin-left: 400px;
+            margin-top: 100px;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        canvas {
+            z-index: 2;
+        }
+
+        #command,
+        #user-gesture,
+        #approval-message,
+        #command-image,
+        #times-up-message {
+            position: absolute;
+            margin-top: 50px;
+            left: 10px;
+            z-index: 3;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+
+        #command {
+            top: 10px;
+        }
+
+        #user-gesture {
+            top: 50px;
+        }
+
+        #approval-message {
+            top: 90px;
+        }
+
+        #command-image {
+            top: 130px;
+        }
+
+        #times-up-message {
+            top: 170px;
+            color: red;
+        }
+
+        #gesture-image {
+            width: 200px;
+            height: 200px;
+        }
+
+        #reset {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        #back {
+            position: absolute;
+            top: 70px;
+            right: 30px;
+            padding: 10px 20px;
+            background-color: rgb(103, 231, 74);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        #attempt-percentage {
+            position: absolute;
+            top: 410px;
+            left: 10px;
+            z-index: 3;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Plese Perform the following Hand Guesture Command</h1>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas"></canvas>
+    <div id="command">Command: None</div>
+    <button id="reset">Try Again</button>
+    <button id="back">Back</button>
+    <div id="user-gesture">User Gesture: None</div>
+
+    <div id="approval-message">Approval: None</div>
+    <div id="command-image"><img id="gesture-image" src="" alt="Gesture Image"></div>
+    <div id="attempt-percentage">Looped Percentage: 0%</div>
+
+    <div id="times-up-message" style="display: none;">Times Up <br> User Failed to follow the command</div>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
